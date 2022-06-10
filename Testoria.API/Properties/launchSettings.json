@@ -27,5 +27,18 @@
         "ASPNETCORE_ENVIRONMENT": "Development"
       }
     }
+  },
+    "Smarter.ASP.NET": {
+      "MarvelousService": {
+        "commandName": "Project",
+        "dotnetRunMessages": true,
+        "launchBrowser": true,
+        "launchUrl": "swagger",
+        "applicationUrl": "https://localhost:7193;http://localhost:5193",
+        "environmentVariables": {
+          "ASPNETCORE_ENVIRONMENT": "Development",
+          "TESTORIA_CONNECTION_STRING": "Data Source=sql5105.site4now.net;Persist Security Info=True;User ID=db_a88368_lekksha001_admin;Pooling=False;MultipleActiveResultSets=False;Connect Timeout=60;Encrypt=False;TrustServerCertificate=False"
+        }
+      }
+    }
   }
-}

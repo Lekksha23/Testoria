@@ -1,7 +1,15 @@
+using Testoria.Data.Configuration;
+
 var builder = WebApplication.CreateBuilder(args);
+string _connectionStringVariableName = "TESTORIA_CONNECTION_STRING";
+
+string connString = builder.Configuration.GetValue<string>(_connectionStringVariableName);
+builder.Services.Configure<DbConfiguration>(opt =>
+{
+    opt.ConnectionString = connString;
+});
 
 // Add services to the container.
-
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
@@ -17,7 +25,7 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
-
+app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapControllers();

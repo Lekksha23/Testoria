@@ -60,4 +60,8 @@
     <Folder Include="Tables" />
     <Folder Include="StoredProcedures" />
   </ItemGroup>
+  <ItemGroup>
+    <Build Include="Tables\Question.sql" />
+    <Build Include="StoredProcedures\SelectQuestionById.sql" />
+  </ItemGroup>
 </Project>
