@@ -5,7 +5,7 @@ using Testoria.Data.Configuration;
 
 namespace Testoria.Data
 {
-    public class BaseRepository
+    public class BaseRepository : IBaseRepository
     {
         private string _connectionString { get; set; }
 

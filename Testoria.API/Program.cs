@@ -1,4 +1,6 @@
+using Testoria.Business.Services;
 using Testoria.Data.Configuration;
+using Testoria.Data.Repositories;
 
 var builder = WebApplication.CreateBuilder(args);
 string _connectionStringVariableName = "TESTORIA_CONNECTION_STRING";
@@ -9,7 +11,9 @@ builder.Services.Configure<DbConfiguration>(opt =>
     opt.ConnectionString = connString;
 });
 
-// Add services to the container.
+builder.Services.AddScoped<IQuestionRepository, QuestionRepository>();
+builder.Services.AddScoped<IQuestionService, QuestionService>();
+
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
