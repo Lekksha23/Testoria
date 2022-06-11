@@ -3,9 +3,9 @@ using Testoria.Data.Entities;
 
 namespace Testoria.Business.Configuration
 {
-    public class AutoMapperForDataLayer : Profile
+    public class AutoMapperData : Profile
     {
-        public AutoMapperForDataLayer()
+        public AutoMapperData()
         {
             CreateMap<QuestionModel, Question>().ReverseMap();
         }
