@@ -1,11 +1,12 @@
 using Testoria.API.Configuration;
+using Testoria.API.Infrastructure;
 using Testoria.Business.Configuration;
 using Testoria.Business.Services;
 using Testoria.Data.Configuration;
 using Testoria.Data.Repositories;
 
 var builder = WebApplication.CreateBuilder(args);
-string _connectionStringVariableName = "TESTORIA_CONNECTION_STRING";
+string _connectionStringVariableName = "ASP.NET";
 
 string connString = builder.Configuration.GetValue<string>(_connectionStringVariableName);
 
@@ -23,23 +24,22 @@ builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 
-builder.Services.AddSwaggerGen(opt => 
+builder.Services.AddSwaggerGen(opt =>
     {
-    opt.EnableAnnotations();
-});
+        opt.EnableAnnotations();
+    });
 
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
-if (app.Environment.IsDevelopment())
-{
-    app.UseSwagger();
-    app.UseSwaggerUI();
-}
+app.UseSwagger();
+app.UseSwaggerUI();
 
 app.UseHttpsRedirection();
 app.UseAuthentication();
 app.UseAuthorization();
+
+app.UseMiddleware<GlobalExceptionHandler>();
 
 app.MapControllers();
 
