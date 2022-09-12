@@ -1,30 +1,18 @@
-﻿using Dapper;
-using System.Data;
+﻿using Microsoft.EntityFrameworkCore;
 using Testoria.Data.Entities;
-using Testoria.Data.Configuration;
-using Microsoft.Extensions.Options;
 
 namespace Testoria.Data.Repositories
 {
-    public class QuestionRepository : BaseRepository, IQuestionRepository
+    public class QuestionRepository : IQuestionRepository
     {
-        private const string _getQuestionByIdProcedure = "dbo.Question_SelectById";
+        private readonly TestoriaContext _context;
 
-        public QuestionRepository(IOptions<DbConfiguration> options) : base(options)
+        public QuestionRepository(TestoriaContext context)
         {
-
+            _context = context;
         }
 
-        public async Task<Question> GetQuestionById(int id)
-        {
-            using IDbConnection connection = ProvideConnection();
-
-            var resource = await connection.QueryFirstOrDefaultAsync<Question>(
-                _getQuestionByIdProcedure,
-                new { Id = id },
-                commandType: CommandType.StoredProcedure);
-
-            return resource;
-        }
+        public async Task<Question?> GetQuestionById(int id)
+            => await _context.Questions.FirstOrDefaultAsync(g => g.Id == id);
     }
 }

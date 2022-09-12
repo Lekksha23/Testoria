@@ -21,7 +21,7 @@ namespace Testoria.API.Controllers
 
         //api/questions/
         [HttpGet("id")]
-        [SwaggerOperation("Get question by id (Now works only with id = 4)")]
+        [SwaggerOperation("Get question by id (Now works only with id = 1)")]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         [SwaggerResponse(StatusCodes.Status200OK, "Successful", typeof(QuestionResponse))]
         public async Task<ActionResult<QuestionResponse>> GetQuestionById([FromQuery] int id)
