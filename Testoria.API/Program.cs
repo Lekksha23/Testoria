@@ -12,9 +12,7 @@ string _connectionStringVariableName = "ASP_NET";
 
 builder.Services.AddControllers();
 
-string connString = builder.Configuration.GetValue<string>(_connectionStringVariableName);
-
-var connectionString = builder.Configuration.GetValue<string>(_connectionStringVariableName);
+var connectionString = builder.Configuration.GetConnectionString(_connectionStringVariableName);
 builder.Services.AddDbContext<TestoriaContext>(opt
     => opt.UseSqlServer(connectionString));
 
