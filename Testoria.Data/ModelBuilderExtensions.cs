@@ -12,7 +12,7 @@ namespace Testoria.Data
                 {
                     Id = 1,
                     Number = 23,
-                    Text = "Тоха чорт",
+                    Text = "Тоха чорт и Лёха тоже, лещь даёт леща по роже",
                     Difficulty = 666,
                     TestId = 1
                 });

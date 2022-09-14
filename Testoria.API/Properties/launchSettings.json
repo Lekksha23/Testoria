@@ -35,7 +35,7 @@
       "applicationUrl": "https://localhost:7294;http://localhost:5294",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development",
-        "ASP_NET": "Data Source=SQL5101.site4now.net;Initial Catalog=db_a8b5ef_benny001;User Id=db_a8b5ef_benny001_admin;Password=hollowknight23;"
+        "ASP_NET": "Data Source=SQL8001.site4now.net;Initial Catalog=db_a8cd61_testorado;User Id=db_a8cd61_testorado_admin;Password=hollowknight23;"
       }
     }
   }

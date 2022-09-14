@@ -27,7 +27,7 @@ namespace Testoria.Data.Migrations
             migrationBuilder.InsertData(
                 table: "Questions",
                 columns: new[] { "Id", "Difficulty", "Number", "TestId", "Text" },
-                values: new object[] { 1, 666, 23, 1, "Тоха чорт" });
+                values: new object[] { 1, 666, 23, 1, "Тоха чорт и Лёха тоже, лещь даёт леща по роже" });
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
